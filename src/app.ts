@@ -35,7 +35,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server + Test 5");
 });
 
-//app.use(require("./routes")(express));
+app.use(require("./routes")(express));
 
 app.listen(process.env.APP_PORT, () => {
   logger.info(`Levantado en puerto ${process.env.APP_PORT}`);
