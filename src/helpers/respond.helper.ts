@@ -11,7 +11,7 @@ direct: if true, it won't create the response object and instead send what was r
 logging: if false, it won't log to console
 meta_extra: everything here will be put in the response.meta property
 */
-const respond = (
+export const respond = (
   res: Response,
   {
     data = null,
@@ -58,5 +58,3 @@ const respond = (
 
   res.status(code).send(response);
 };
-
-module.exports = respond;

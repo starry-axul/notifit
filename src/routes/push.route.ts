@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import { notifyController } from "../controllers/notify.controller";
+import { notifyController } from "../controllers";
 
 const router = Router();
 
 router.post("/push/", notifyController.push.bind(notifyController));
 
-module.exports = router;
+export default router;

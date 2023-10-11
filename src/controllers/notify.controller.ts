@@ -1,10 +1,19 @@
 import express, { Express, Request, Response } from "express";
-import { PushService, IPushService } from "../services/push.service";
+import { PushService } from "../services";
 const { respond } = require("../helpers");
-
+const { error } = require("../helpers");
 //import { respond } from "../helpers";
 
 //let _assetService = null;
+
+interface IPushBody {
+  title: string;
+  message: string;
+  url: string;
+}
+interface IPushReq extends Request {
+  body: IPushBody;
+}
 
 export interface INotifyController {
   push(req: Request, res: Response): void;
@@ -17,13 +26,14 @@ class NotifyController {
     this._pushService = new PushService();
   }
 
-  async push(req: Request, res: Response) {
+  async push(req: IPushReq, res: Response) {
     console.log("entra");
-    await this._pushService.push();
-    //const { id } = req;
+
+    const reqPush = req.body;
+    await this._pushService.push(reqPush.title, reqPush.message, reqPush.url);
     //const data   = await _assetService.get(id);
 
-    return respond(res, {});
+    return respond(res, { code: 200, data: "OK" });
   }
 
   /*

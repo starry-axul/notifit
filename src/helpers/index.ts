@@ -1,10 +1,9 @@
 import debug from "debug";
+import { error } from "./error.helper";
+import { logger } from "./logger.helper";
+import { respond } from "./respond.helper";
 
 const d = debug(`${process.env.APP_NAME}:helpers`);
 d(`Loading helpers`);
 
-module.exports = {
-  logger: require("./logger.helper"),
-  respond: require("./respond.helper"),
-  //error:   require('./error.helper'),
-};
+export { logger, respond, error };

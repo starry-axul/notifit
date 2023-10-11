@@ -10,7 +10,7 @@ module.exports = (
   next: NextFunction
 ) => {
   const code = err.code || HTTP_CODE.INTERNAL_SERVER_ERROR;
-  const message = err.data || err.toString();
+  const message = err.message || err.toString();
 
   return respond(res, { code, message });
 };

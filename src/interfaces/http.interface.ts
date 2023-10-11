@@ -1,6 +1,6 @@
 export interface Error {
-  code: string;
-  data: string;
+  code: number;
+  message: string;
 }
 
 export interface ResponseData {

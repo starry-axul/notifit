@@ -13,7 +13,7 @@ d(`Booting up...`);
 dotenv.config();
 const app: Express = express();
 
-require('./config/env.config');
+require("./config/env.config");
 const { logger } = require("./helpers");
 //require("./config/database.config.js");
 morgan.format(
@@ -31,10 +31,6 @@ app.use(morgan("default_format", { stream: logger.stream }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server + Test 5");
-});
-
 app.use(require("./routes")(express));
 
 app.listen(process.env.APP_PORT, () => {
@@ -43,4 +39,4 @@ app.listen(process.env.APP_PORT, () => {
   d(`${process.env.APP_NAME} up!`);
 });
 
-//module.exports = app;
+export default app;

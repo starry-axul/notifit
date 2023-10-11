@@ -1,9 +1,7 @@
-import debug from "debug"
+import debug from "debug";
+import { pushConfig } from "./sdk.config";
+
 const d = debug(`${process.env.APP_NAME}:config`);
 d(`Loading config`);
 
-module.exports = {
-    //swagger:  require('./swagger.config.js'),
-    //database: require('./database.config.js'),
-    //aws:      require('./aws.config'),
-};
+export { pushConfig };
