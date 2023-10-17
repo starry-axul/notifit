@@ -1,4 +1,4 @@
-import { PushSDK } from "../sdk";
+import { PushSDK } from "ts-sdk-push";
 import { pushConfig } from "../config";
 import { error } from "../helpers";
 
