@@ -1,17 +1,9 @@
-version: "3.7"
-
+version: '3.7'
 services:
-  notifit_ts_app:
+  ts-node-docker:
+    image: ncostamagna/notifit_ts_app:${TAG}
+    environment:
+      - NODE_ENV=production
     build:
       context: .
       dockerfile: Dockerfile
-      target: base
-    volumes:
-      - ./src:/home/node/app/src
-      - ./nodemon.json:/home/node/app/nodemon.json
-    container_name: notifit_ts_app
-    expose:
-      - "8100"
-    ports:
-      - "8100:8100"
-    command: npm run dev

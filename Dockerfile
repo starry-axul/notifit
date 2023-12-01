@@ -1,4 +1,4 @@
-FROM node:18.17.1 as base
+FROM node:20.9.0
 
 WORKDIR /home/node/app
 
@@ -8,9 +8,10 @@ RUN npm i
 
 COPY . .
 
+COPY --chown=node:node . .
 
-FROM base as production
-
-ENV NODE_PATH=./build
+EXPOSE 3000
 
 RUN npm run build
+
+CMD [ "node", "dist/app.js" ]

@@ -35,7 +35,6 @@ app.use(require("./routes")(express));
 
 app.listen(process.env.APP_PORT, () => {
   logger.info(`Levantado en puerto ${process.env.APP_PORT}`);
-  //console.log("up");
   d(`${process.env.APP_NAME} up!`);
 });
 
